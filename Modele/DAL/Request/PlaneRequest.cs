@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AirAtlantique.Modele.DAL.Request
 {
@@ -35,8 +36,8 @@ namespace AirAtlantique.Modele.DAL.Request
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    Modele.ORM.plane plane = new Modele.ORM.plane(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetInt32(5));
-                    Planes.Add(plane);
+                    Modele.ORM.plane Plane = new Modele.ORM.plane(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetInt32(3), Modele.ORM.pilote.GetPilote(dataReader.GetInt32(4)), dataReader.GetInt32(5));
+                    Planes.Add(Plane);
 
                 }
 
@@ -57,14 +58,14 @@ namespace AirAtlantique.Modele.DAL.Request
 
         public static void updatePlane(Modele.ORM.plane Plane)
         {
-            string query = "UPDATE plane SET Name = @name, Type = @typePlane, nb_Seat= @nb_Seat WHERE idPlane = @idPlane";
             
-
+           
             //Open connection
             ConnexionWorkBench connection = new ConnexionWorkBench();
             if (connection.OpenConnection() == true)
-
             {
+                
+                string query = "UPDATE plane SET Name=@name, Type=@typePlane, nb_Seat=@nb_Seat WHERE idPlane=@idPlane";
                 //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
 
@@ -74,7 +75,7 @@ namespace AirAtlantique.Modele.DAL.Request
                 cmd.Parameters.AddWithValue("@typePlane", Plane.Type);
                 cmd.Parameters.AddWithValue("@nb_Seat", Plane.Nb_Seat);
 
-
+                MessageBox.Show(query);
                 //Execute the command
                 cmd.ExecuteNonQuery();
 

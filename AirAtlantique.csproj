@@ -65,8 +65,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Modele\DAL\ConnexionWorkBench.cs" />
+    <Compile Include="Modele\DAL\Request\PiloteRequest.cs" />
     <Compile Include="Modele\DAL\Request\PlaneRequest.cs" />
+    <Compile Include="Modele\DAO\DAOpilote.cs" />
     <Compile Include="Modele\DAO\DAOplanes.cs" />
+    <Compile Include="Modele\ORM\pilote.cs" />
     <Compile Include="Modele\ORM\plane.cs" />
     <Compile Include="VueModele\VueHome.cs" />
     <Compile Include="Vue\Stocks.xaml.cs">

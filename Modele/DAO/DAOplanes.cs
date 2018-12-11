@@ -20,9 +20,9 @@ namespace AirAtlantique.Modele.DAO
             return Planes;
         }
 
-        private static void updatePlane(Modele.ORM.plane Plane)
+        public static void updatePlane(Modele.ORM.plane Plane)
         {
-            updatePlane(Plane);
+            Modele.DAL.Request.PlaneRequest.updatePlane(Plane);
         }
 
 

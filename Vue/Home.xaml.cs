@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using plane= AirAtlantique.Modele.ORM.plane;
 
 namespace AirAtlantique.Vue
 {
@@ -21,6 +22,7 @@ namespace AirAtlantique.Vue
     /// </summary>
     public partial class Home : Page
     {
+
         public Home()
         {
             InitializeComponent();
@@ -28,10 +30,17 @@ namespace AirAtlantique.Vue
             ObservableCollection<Modele.ORM.plane> planes  = vue.getPlanes();
 
 
-                gridPlanes.ItemsSource = planes;
 
+            gridPlanes.ItemsSource = planes;
+           // gridPlanes.DataContextChanged;
 
 
         }
+        private void Data_changed(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
     }
+
+
 }
