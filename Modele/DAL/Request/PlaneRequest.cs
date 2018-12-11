@@ -75,7 +75,6 @@ namespace AirAtlantique.Modele.DAL.Request
                 cmd.Parameters.AddWithValue("@typePlane", Plane.Type);
                 cmd.Parameters.AddWithValue("@nb_Seat", Plane.Nb_Seat);
 
-                MessageBox.Show(query);
                 //Execute the command
                 cmd.ExecuteNonQuery();
 
