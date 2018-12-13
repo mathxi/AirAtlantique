@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AirAtlantique.Modele;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace AirAtlantique.Vue
 {
@@ -26,10 +27,20 @@ namespace AirAtlantique.Vue
         public Planes()
         {
             InitializeComponent();
+            VueModele.VueHome vue = new VueModele.VueHome();
 
+            gridPlanes.ItemsSource = vue.getPlanes();
 
 
 
         }
+        private void Data_changed(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+
     }
+    
 }

@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using plane= AirAtlantique.Modele.ORM.plane;
+﻿using System.Windows.Controls;
+using AirAtlantique.Vue.Design;
 
 namespace AirAtlantique.Vue
 {
@@ -26,21 +12,26 @@ namespace AirAtlantique.Vue
         public Home()
         {
             InitializeComponent();
-            VueModele.VueHome vue = new VueModele.VueHome();
-            ObservableCollection<Modele.ORM.plane> planes  = vue.getPlanes();
 
 
+            //Add item to ComboBox:
+            ListPilote.Items.Add(new Design.ComboBoxItem("DisplayValue", "HiddenValue"));
+            ListPilote.Items.Add(new Design.ComboBoxItem("Bruhhh", "HiddenValue"));
+            ListPilote.Items.Add(new Design.ComboBoxItem("Weshhh", "HiddenValue"));
 
-            gridPlanes.ItemsSource = planes;
-           // gridPlanes.DataContextChanged;
+            //Get hidden value of selected item:
+            //string hValue = ((Design.ComboBoxItem)ListPilote.SelectedItem).HiddenValue;
 
 
         }
-        private void Data_changed(object sender, SelectionChangedEventArgs e)
-        {
-           
-        }
+
+
     }
 
 
+
+
+
 }
+
+

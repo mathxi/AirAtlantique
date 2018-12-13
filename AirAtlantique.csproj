@@ -72,6 +72,7 @@
     <Compile Include="Modele\ORM\pilote.cs" />
     <Compile Include="Modele\ORM\plane.cs" />
     <Compile Include="VueModele\VueHome.cs" />
+    <Compile Include="Vue\Design\ComboBoxItem.cs" />
     <Compile Include="Vue\Stocks.xaml.cs">
       <DependentUpon>Stocks.xaml</DependentUpon>
     </Compile>

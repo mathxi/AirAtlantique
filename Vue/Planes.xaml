@@ -7,8 +7,36 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Planes">
+    <StackPanel>
+        <Label Foreground="Black" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les Avions</Label>
+        
+    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="false" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Name="gridPlanes" SelectionChanged="Data_changed">
+        <DataGrid.Columns>
+            <DataGridTextColumn Width="1*" Header="Id" Binding="{Binding IdPlane, Mode=OneWay}" />
+            <DataGridTextColumn Width="1*" Header="Nom" Binding="{Binding Name, Mode=TwoWay}" />
+            <DataGridTextColumn Width="1*" Header="Nombre de sièges" Binding="{Binding Nb_Seat, Mode=TwoWay}" />
+            <DataGridTextColumn Width="1*" Header="Nom Pilote" Binding="{Binding Id_Pilote.Name, Mode=OneWay}" />
+        </DataGrid.Columns>
+    </DataGrid>
+        <StackPanel Margin="20 20" HorizontalAlignment="Left" Orientation="Horizontal" >
+            <StackPanel>
+            <Label>Nom</Label>
+                <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
+            </StackPanel>
+            <StackPanel>
+                <Label>Machin</Label>
+                <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
+            </StackPanel>
+            <StackPanel>
+                <!--<TextBox
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+          materialDesign:HintAssist.Hint="Content"
+          Text="{Binding Content}"
+          Margin="8 0 0 0"
+          VerticalAlignment="Bottom" />-->
+            </StackPanel>
+            <Button Background="#006064" BorderBrush="Transparent" >Ajouter</Button>
 
-        
-            <TextBlock Text="Page 'Avions'" Foreground="Black" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        
+        </StackPanel>
+    </StackPanel>
 </Page>

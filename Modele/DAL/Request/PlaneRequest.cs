@@ -85,5 +85,42 @@ namespace AirAtlantique.Modele.DAL.Request
 
 
         }
+
+
+
+
+
+
+        public static void insertPlane(Modele.ORM.plane Plane)
+        {
+            
+           
+            //Open connection
+            ConnexionWorkBench connection = new ConnexionWorkBench();
+            if (connection.OpenConnection() == true)
+            {
+
+                string query = "INSERT INTO table (Name, Type, nb_Seat,id_Pilote" +
+                               " VALUES(@Name, @Type, @nbSeat,idPilote)";
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
+
+                //shield injection
+                cmd.Parameters.AddWithValue("@Name", Plane.Name);
+                cmd.Parameters.AddWithValue("@Type", Plane.Type);
+                cmd.Parameters.AddWithValue("@nbSeat", Plane.Nb_Seat);
+                cmd.Parameters.AddWithValue("@idPilote", Plane.Id_Pilote);
+                cmd.Parameters.AddWithValue("@idPilote", Plane.Id_airport);
+
+                //Execute the command
+                cmd.ExecuteNonQuery();
+
+
+                //close Connection
+                connection.CloseConnection();
+            }
+
+
+        }
     }
 }

@@ -4,21 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AirAtlantique"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
+    <Grid >
+        <Label Foreground="Black" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"  >Accueil</Label>
 
-    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="false" Height="400" Width="750" HorizontalAlignment="Center" VerticalAlignment="Center" Name="gridPlanes" SelectionChanged="Data_changed">
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="Id" Binding="{Binding IdPlane, Mode=OneWay}" />
-            <DataGridTextColumn Header="Nom" Binding="{Binding Name, Mode=TwoWay}" />
-            <DataGridTextColumn Header="Nombre de sièges" Binding="{Binding Nb_Seat, Mode=TwoWay}" />
-            <DataGridTextColumn Header="Nom Pilote" Binding="{Binding Id_Pilote.Name, Mode=TwoWay}" />
-        </DataGrid.Columns>
-    </DataGrid>
+        <StackPanel>
+            <Label>Pilote</Label>
+            <ComboBox x:Name="ListPilote" materialDesign:ComboBoxAssist.ClassicMode="{Binding ElementName=ClassicModeCheckBox, Path=IsChecked}" Margin="0 8 0 8" HorizontalAlignment="Left" >
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+   
 
-    <!--<Grid>
-        <ListView ItemsSource="{Binding Planes}" />
-    </Grid>-->
+    
 
 </Page>
