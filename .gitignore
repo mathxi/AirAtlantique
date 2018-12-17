@@ -336,3 +336,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# AppConfig pour connexion bdd
+App.config
