@@ -41,7 +41,7 @@ namespace AirAtlantique.Modele.ORM
         }
 
 
-        public int Crew
+        public Modele.ORM.crew Crew
         {
             get { return crew; }
             set { crew = value; }
@@ -63,30 +63,29 @@ namespace AirAtlantique.Modele.ORM
         public int IdPlane
         {
             get { return idPlane; }
-            set { idPlane = value; OnPropertyChanged("idPlane"); }
+            set { idPlane = value; /*OnPropertyChanged("idPlane"); */}
         }
 
 
 
 
-        public plane(int idplane, string name, string type, int nb_Seat, Modele.ORM.pilote id_Pilote, int id_airport)
+        public plane( int idThisPlane, Modele.ORM.type thisType, Modele.ORM.crew thisCrew , Modele.ORM.warehouse thisWarehouse, bool thisStatus)
         {
-            //this.IdPlane = idplane;
-            //this.Name = name;
-            //this.Type = type;
-            //this.Nb_Seat = nb_Seat;
-            //this.Id_Pilote = id_Pilote;
-            //this.Id_airport = id_airport;
+
+            IdPlane = idThisPlane;
+            Type = thisType;
+            Crew = thisCrew;
+            Warehouse = thisWarehouse;
+            Status = thisStatus;
 
         }
 
-       
 
 
 
         public static ObservableCollection<plane> getPlanes()
         {
-            return Modele.DAO.DAOplanes.getplanes();
+            return Modele.DAL.PlaneRequest.getplanes();
         }
 
 

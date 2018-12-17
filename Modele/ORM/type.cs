@@ -87,5 +87,14 @@ namespace AirAtlantique.Modele.ORM
             set { idType = value; }
         }
 
+
+        public static Modele.ORM.type GetType(int id)
+        {
+
+
+            return Modele.DAL.Request.TypeRequest.getType(id);
+        }
+
+
     }
 }
