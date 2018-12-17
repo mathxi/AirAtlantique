@@ -36,7 +36,24 @@ namespace AirAtlantique.Modele.DAL.Request
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    Modele.ORM.plane Plane = new Modele.ORM.plane(dataReader.GetInt32(0), Modele.ORM.type.GetType(dataReader.GetInt32(1)), Modele.ORM.crew.GetCrew(dataReader.GetInt32(2)), Modele.ORM.warehouse.GetWarehouse(dataReader.GetInt32(3)), dataReader.GetBoolean(4));
+                    int idplane = dataReader.GetInt32(0);
+                    Modele.ORM.type Type = Modele.ORM.type.GetType(dataReader.GetInt32(1));
+                    Modele.ORM.crew Crew;
+                    if (dataReader[2] != DBNull.Value)
+                    {
+                         Crew = Modele.ORM.crew.GetCrew(dataReader.GetInt32(2));
+                    }
+                    else
+                    {
+                        Crew = null;
+                    }
+                    
+                    Modele.ORM.warehouse Warehouse = Modele.ORM.warehouse.GetWarehouse(dataReader.GetInt32(3));
+                    bool status = dataReader.GetBoolean(4);
+
+
+
+                    Modele.ORM.plane Plane = new Modele.ORM.plane(idplane,Type,Crew,Warehouse,status);
                     Planes.Add(Plane);
 
                 }

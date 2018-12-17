@@ -26,8 +26,6 @@ namespace AirAtlantique.Modele.ORM
 
         public static Modele.ORM.crew GetCrew(int id)
         {
-
-
             return Modele.DAL.Request.CrewRequest.getCrew(id);
         }
     }

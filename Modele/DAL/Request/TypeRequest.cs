@@ -39,11 +39,11 @@ namespace AirAtlantique.Modele.DAL.Request
                     Type.IdType = dataReader.GetInt32(0);
                     Type.Name = dataReader.GetString(1);
                     Type.Motor = dataReader.GetString(2);
-                    Type.NbSeatingPlaces = dataReader.GetInt32(4);
-                    Type.NbEcoPlaces = dataReader.GetInt32(5);
-                    Type.NbEcoPremPlaces = dataReader.GetInt32(6);
-                    Type.NbBusinessPlaces = dataReader.GetInt32(7);
-                    Type.NbPremierePlaces = dataReader.GetInt32(8);
+                    Type.NbSeatingPlaces = dataReader.GetInt32(3);
+                    Type.NbEcoPlaces = dataReader.GetInt32(4);
+                    Type.NbEcoPremPlaces = dataReader.GetInt32(5);
+                    Type.NbBusinessPlaces = dataReader.GetInt32(6);
+                    Type.NbPremierePlaces = dataReader.GetInt32(7);
 
 
                 }

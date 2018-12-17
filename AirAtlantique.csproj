@@ -65,10 +65,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Modele\DAL\ConnexionWorkBench.cs" />
+    <Compile Include="Modele\DAL\Request\AirportRequest.cs" />
+    <Compile Include="Modele\DAL\Request\CityRequest.cs" />
     <Compile Include="Modele\DAL\Request\CrewRequest.cs" />
     <Compile Include="Modele\DAL\Request\PlaneRequest.cs" />
     <Compile Include="Modele\DAL\Request\SalariedRequest.cs" />
     <Compile Include="Modele\DAL\Request\TypeRequest.cs" />
+    <Compile Include="Modele\DAL\Request\WarehouseRequest.cs" />
     <Compile Include="Modele\ORM\airport.cs" />
     <Compile Include="Modele\ORM\city.cs" />
     <Compile Include="Modele\ORM\crew.cs" />

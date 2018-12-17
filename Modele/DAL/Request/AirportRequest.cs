@@ -16,7 +16,7 @@ namespace AirAtlantique.Modele.DAL.Request
 
         {
             Modele.ORM.airport Airport = new Modele.ORM.airport();
-            string query = "SELECT * FROM type where id=@airport;";
+            string query = "SELECT * FROM airport where id=@airport;";
 
 
             //Open connection

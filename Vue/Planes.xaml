@@ -3,40 +3,66 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirAtlantique"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Planes">
-    <StackPanel>
-        <Label Foreground="Black" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les Avions</Label>
-        
-    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="false" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Name="gridPlanes" SelectionChanged="Data_changed">
-        <DataGrid.Columns>
-            <DataGridTextColumn Width="1*" Header="Id" Binding="{Binding IdPlane, Mode=OneWay}" />
-            <DataGridTextColumn Width="1*" Header="Nom" Binding="{Binding Name, Mode=TwoWay}" />
-            <DataGridTextColumn Width="1*" Header="Nombre de sièges" Binding="{Binding Nb_Seat, Mode=TwoWay}" />
-            <DataGridTextColumn Width="1*" Header="Nom Pilote" Binding="{Binding Id_Pilote.Name, Mode=OneWay}" />
-        </DataGrid.Columns>
-    </DataGrid>
-        <StackPanel Margin="20 20" HorizontalAlignment="Left" Orientation="Horizontal" >
-            <StackPanel>
-            <Label>Nom</Label>
+    <Grid Background="White">
+        <!--<StackPanel Margin="20 20" HorizontalAlignment="Center" Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalAlignment="Center">Nom</Label>
+                <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalAlignment="Center">Machin</Label>
                 <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
             </StackPanel>
             <StackPanel>
-                <Label>Machin</Label>
-                <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
-            </StackPanel>
-            <StackPanel>
-                <!--<TextBox
+                --><!--<TextBox
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
           materialDesign:HintAssist.Hint="Content"
           Text="{Binding Content}"
           Margin="8 0 0 0"
-          VerticalAlignment="Bottom" />-->
+          VerticalAlignment="Bottom" />--><!--
             </StackPanel>
             <Button Background="#006064" BorderBrush="Transparent" >Ajouter</Button>
 
-        </StackPanel>
-    </StackPanel>
+        </StackPanel>-->
+        <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les Avions</Label>
+        <Grid>
+            <DataGrid ItemsSource="{Binding Planes}" AutoGenerateColumns="false" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Name="gridPlanes"> <!--SelectionChanged="Data_changed"-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="1*" Header="Id" Binding="{Binding IdPlane, Mode=OneWay}" />
+                    <DataGridTextColumn Width="1*" Header="Type d'avion" Binding="{Binding Type.Name, Mode=OneWay}" />
+                    <DataGridTextColumn Width="1*" Header="Type du moteur" Binding="{Binding Type.Motor, Mode=OneWay}" />
+                    <DataGridTextColumn Width="1*" Header="Nombre de sièges total" Binding="{Binding Type.NbSeatingPlaces, Mode=OneWay}" />
+                    <DataGridTextColumn Width="1*" Header="Ville" Binding="{Binding Warehouse.Airport.City.Name, Mode=OneWay}" />
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid>
+            <Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" Background="Blue"/>
+        </Grid>
+
+        <Grid x:Name="ModalAddPlane" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
+            <Grid Background="White" Height="150">
+                <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <TextBox materialDesign:HintAssist.Hint="Name"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock materialDesign:HintAssist.Hint="Machin"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Retour" Click="ReturnPlaneListClick"/>
+                    <Button Content="Ajouter"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
 </Page>

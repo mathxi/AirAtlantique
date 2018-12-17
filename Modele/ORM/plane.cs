@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AirAtlantique.Modele.ORM
 {
-    class plane : INotifyPropertyChanged
+    class plane /*: INotifyPropertyChanged*/
     {
 
 
@@ -91,17 +91,17 @@ namespace AirAtlantique.Modele.ORM
 
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(string info)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(info));
-                Modele.DAO.DAOplanes.updatePlane(this);
-            }
-        }
+        //private void OnPropertyChanged(string info)
+        //{
+        //    PropertyChangedEventHandler handler = PropertyChanged;
+        //    if (handler != null)
+        //    {
+        //        handler(this, new PropertyChangedEventArgs(info));
+        //        Modele.DAO.DAOplanes.updatePlane(this);
+        //    }
+        //}
 
 
     }

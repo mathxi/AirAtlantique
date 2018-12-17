@@ -16,7 +16,7 @@ namespace AirAtlantique.Modele.DAL.Request
 
         {
             Modele.ORM.warehouse Warehouse = new Modele.ORM.warehouse();
-            string query = "SELECT * FROM type where id=@warehouse;";
+            string query = "SELECT * FROM warehouse where id=@warehouse;";
 
 
             //Open connection

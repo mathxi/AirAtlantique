@@ -30,14 +30,19 @@ namespace AirAtlantique.Vue
             VueModele.VueHome vue = new VueModele.VueHome();
 
             gridPlanes.ItemsSource = vue.getPlanes();
-
-
-
         }
-        private void Data_changed(object sender, SelectionChangedEventArgs e)
+
+        private void AddFlyModalClick(object sender,RoutedEventArgs e)
         {
-
+            this.ModalAddPlane.Visibility = Visibility.Visible;
         }
+
+        private void ReturnPlaneListClick(object sender, RoutedEventArgs e)
+        {
+            this.ModalAddPlane.Visibility = Visibility.Collapsed;
+        }
+
+
 
 
 

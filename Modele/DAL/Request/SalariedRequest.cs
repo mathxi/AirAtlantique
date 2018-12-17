@@ -60,7 +60,7 @@ namespace AirAtlantique.Modele.DAL.Request
             {
                 return Salaried;
             }
-        }
+        
         }
     }
 }
