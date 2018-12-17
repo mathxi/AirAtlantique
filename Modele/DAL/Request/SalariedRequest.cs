@@ -11,12 +11,12 @@ namespace AirAtlantique.Modele.DAL.Request
     {
 
         //Select statement
-        public static Modele.ORM.type getCrew(int idCrew)
+        public static Modele.ORM.salaried getSalaried(int idSalaried)
 
 
         {
-            Modele.ORM.crew Crew = new Modele.ORM.crew();
-            string query = "SELECT * FROM type where id=@crew;";
+            Modele.ORM.salaried Salaried = new Modele.ORM.salaried();
+            string query = "SELECT * FROM type where id=@idSalaried;";
 
 
             //Open connection
@@ -28,7 +28,7 @@ namespace AirAtlantique.Modele.DAL.Request
                 MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
 
                 //shield sql injection
-                cmd.Parameters.AddWithValue("@crew", idCrew);
+                cmd.Parameters.AddWithValue("@idSalaried", idSalaried);
 
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -37,8 +37,7 @@ namespace AirAtlantique.Modele.DAL.Request
                 while (dataReader.Read())
                 {
 
-                    Crew.IdCrew = dataReader.GetInt32(0);
-                    Crew.Salaried = dataReader.GetInt32(1);
+                    
 
                 }
 
@@ -49,11 +48,11 @@ namespace AirAtlantique.Modele.DAL.Request
                 connection.CloseConnection();
 
                 //return list to be displayed
-                return Type;
+                return Salaried;
             }
             else
             {
-                return Type;
+                return Salaried;
             }
         }
         }
