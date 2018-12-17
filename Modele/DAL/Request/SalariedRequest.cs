@@ -36,8 +36,14 @@ namespace AirAtlantique.Modele.DAL.Request
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-
-                    
+                    Salaried.IdSalaried = dataReader.GetInt32(0);
+                    Salaried.Crew = Modele.ORM.crew.GetCrew(dataReader.GetInt32(1));
+                    Salaried.Name = dataReader.GetString(2);
+                    Salaried.FirstName = dataReader.GetString(3);
+                    Salaried.RegistrationNumber = dataReader.GetInt32(4);
+                    Salaried.Availibility = dataReader.GetBoolean(5);
+                    Salaried.DateBirth = dataReader.GetDateTime(6);
+                    Salaried.DateHiring = dataReader.GetDateTime(7);
 
                 }
 

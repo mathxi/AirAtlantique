@@ -10,21 +10,22 @@ namespace AirAtlantique.Modele.ORM
     {
 
         private int idsalaried;
+        private Modele.ORM.crew crew;
         private string name;
         private string firstName;
         private int registrationNumber;
         private bool availibility;
-        private string dateBirth;
-        private string dateHiring;
+        private DateTime dateBirth;
+        private DateTime dateHiring;
 
-        public string DateHiring
+        public DateTime DateHiring
         {
             get { return dateHiring; }
             set { dateHiring = value; }
         }
 
 
-        public string DateBirth
+        public DateTime DateBirth
         {
             get { return dateBirth; }
             set { dateBirth = value; }
@@ -58,6 +59,11 @@ namespace AirAtlantique.Modele.ORM
             set { name = value; }
         }
 
+        public Modele.ORM.crew Crew
+        {
+            get { return crew; }
+            set { crew = value; }
+        }
 
         public int IdSalaried
         {

@@ -9,7 +9,6 @@ namespace AirAtlantique.Modele.ORM
     class crew
     {
         private int idcrew;
-        private Modele.ORM.salaried salaried;
         private int number;
 
         public int Number
@@ -19,17 +18,17 @@ namespace AirAtlantique.Modele.ORM
         }
 
 
-        public Modele.ORM.salaried Salaried
-        {
-            get { return salaried; }
-            set { salaried = value; }
-        }
-
-
         public int IdCrew
         {
             get { return idcrew; }
             set { idcrew = value; }
+        }
+
+        public static Modele.ORM.crew GetCrew(int id)
+        {
+
+
+            return Modele.DAL.Request.CrewRequest.getCrew(id);
         }
     }
 }

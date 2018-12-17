@@ -11,7 +11,7 @@ namespace AirAtlantique.Modele.DAL.Request
     {
 
         //Select statement
-        public static Modele.ORM.type getCrew(int idCrew)
+        public static Modele.ORM.crew getCrew(int idCrew)
 
 
         {
@@ -38,7 +38,7 @@ namespace AirAtlantique.Modele.DAL.Request
                 {
 
                     Crew.IdCrew = dataReader.GetInt32(0);
-                    Crew.Salaried = dataReader.GetInt32(1);
+                    Crew.Number = dataReader.GetInt32(1);
 
                 }
 
@@ -49,11 +49,11 @@ namespace AirAtlantique.Modele.DAL.Request
                 connection.CloseConnection();
 
                 //return list to be displayed
-                return Type;
+                return Crew;
             }
             else
             {
-                return Type;
+                return Crew;
             }
         }
 
