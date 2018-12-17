@@ -45,5 +45,14 @@ namespace AirAtlantique.Modele.ORM
             set { idAirport = value; }
         }
 
+
+        public static Modele.ORM.airport GetAirport(int id)
+        {
+
+
+            return Modele.DAL.Request.AirportRequest.getAirport(id);
+        }
+
+
     }
 }

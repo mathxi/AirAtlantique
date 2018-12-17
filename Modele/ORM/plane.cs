@@ -85,7 +85,7 @@ namespace AirAtlantique.Modele.ORM
 
         public static ObservableCollection<plane> getPlanes()
         {
-            return Modele.DAL.PlaneRequest.getplanes();
+            return Modele.DAL.Request.PlaneRequest.getPlanes();
         }
 
 

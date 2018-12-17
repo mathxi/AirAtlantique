@@ -15,7 +15,7 @@ namespace AirAtlantique.Modele.DAL.Request
     {
 
         //Select statement
-        public ObservableCollection<Modele.ORM.plane> getPlanes()
+        public static ObservableCollection<Modele.ORM.plane> getPlanes()
 
 
         {
@@ -36,7 +36,7 @@ namespace AirAtlantique.Modele.DAL.Request
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    Modele.ORM.plane Plane = new Modele.ORM.plane(dataReader.GetInt32(0), Modele.ORM.type.GetType(dataReader.GetInt32(1));
+                    Modele.ORM.plane Plane = new Modele.ORM.plane(dataReader.GetInt32(0), Modele.ORM.type.GetType(dataReader.GetInt32(1)), Modele.ORM.crew.GetCrew(dataReader.GetInt32(2)), Modele.ORM.warehouse.GetWarehouse(dataReader.GetInt32(3)), dataReader.GetBoolean(4));
                     Planes.Add(Plane);
 
                 }
@@ -56,71 +56,71 @@ namespace AirAtlantique.Modele.DAL.Request
             }
         }
 
-        public static void updatePlane(Modele.ORM.plane Plane)
-        {
+        //public static void updatePlane(Modele.ORM.plane Plane)
+        //{
             
            
-            //Open connection
-            ConnexionWorkBench connection = new ConnexionWorkBench();
-            if (connection.OpenConnection() == true)
-            {
+        //    //Open connection
+        //    ConnexionWorkBench connection = new ConnexionWorkBench();
+        //    if (connection.OpenConnection() == true)
+        //    {
                 
-                string query = "UPDATE plane SET Name=@name, Type=@typePlane, nb_Seat=@nb_Seat WHERE idPlane=@idPlane";
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
+        //        string query = "UPDATE plane SET Name=@name, Type=@typePlane, nb_Seat=@nb_Seat WHERE idPlane=@idPlane";
+        //        //Create Command
+        //        MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
 
-                //shield injection
-                cmd.Parameters.AddWithValue("@idPlane", Plane.IdPlane);
-                cmd.Parameters.AddWithValue("@name", Plane.Name);
-                cmd.Parameters.AddWithValue("@typePlane", Plane.Type);
-                cmd.Parameters.AddWithValue("@nb_Seat", Plane.Nb_Seat);
+        //        //shield injection
+        //        cmd.Parameters.AddWithValue("@idPlane", Plane.IdPlane);
+        //        cmd.Parameters.AddWithValue("@name", Plane.Name);
+        //        cmd.Parameters.AddWithValue("@typePlane", Plane.Type);
+        //        cmd.Parameters.AddWithValue("@nb_Seat", Plane.Nb_Seat);
 
-                //Execute the command
-                cmd.ExecuteNonQuery();
-
-
-                //close Connection
-                connection.CloseConnection();
-            }
+        //        //Execute the command
+        //        cmd.ExecuteNonQuery();
 
 
-        }
+        //        //close Connection
+        //        connection.CloseConnection();
+        //    }
 
 
+        //}
 
 
 
 
-        public static void insertPlane(Modele.ORM.plane Plane)
-        {
+
+
+        //public static void insertPlane(Modele.ORM.plane Plane)
+        //{
             
            
-            //Open connection
-            ConnexionWorkBench connection = new ConnexionWorkBench();
-            if (connection.OpenConnection() == true)
-            {
+        //    //Open connection
+        //    ConnexionWorkBench connection = new ConnexionWorkBench();
+        //    if (connection.OpenConnection() == true)
+        //    {
 
-                string query = "INSERT INTO table (Name, Type, nb_Seat,id_Pilote" +
-                               " VALUES(@Name, @Type, @nbSeat,idPilote)";
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
+        //        string query = "INSERT INTO table (Name, Type, nb_Seat,id_Pilote" +
+        //                       " VALUES(@Name, @Type, @nbSeat,idPilote)";
+        //        //Create Command
+        //        MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
 
-                //shield injection
-                cmd.Parameters.AddWithValue("@Name", Plane.Name);
-                cmd.Parameters.AddWithValue("@Type", Plane.Type);
-                cmd.Parameters.AddWithValue("@nbSeat", Plane.Nb_Seat);
-                cmd.Parameters.AddWithValue("@idPilote", Plane.Id_Pilote);
-                cmd.Parameters.AddWithValue("@idPilote", Plane.Id_airport);
+        //        //shield injection
+        //        cmd.Parameters.AddWithValue("@Name", Plane.Name);
+        //        cmd.Parameters.AddWithValue("@Type", Plane.Type);
+        //        cmd.Parameters.AddWithValue("@nbSeat", Plane.Nb_Seat);
+        //        cmd.Parameters.AddWithValue("@idPilote", Plane.Id_Pilote);
+        //        cmd.Parameters.AddWithValue("@idPilote", Plane.Id_airport);
 
-                //Execute the command
-                cmd.ExecuteNonQuery();
-
-
-                //close Connection
-                connection.CloseConnection();
-            }
+        //        //Execute the command
+        //        cmd.ExecuteNonQuery();
 
 
-        }
+        //        //close Connection
+        //        connection.CloseConnection();
+        //    }
+
+
+        //}
     }
 }

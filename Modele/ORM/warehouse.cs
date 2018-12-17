@@ -50,5 +50,15 @@ namespace AirAtlantique.Modele.ORM
 
 
 
+        public static Modele.ORM.warehouse GetWarehouse(int id)
+        {
+
+
+            return Modele.DAL.Request.WarehouseRequest.getWarehouse(id);
+        }
+
+
+
+
     }
 }

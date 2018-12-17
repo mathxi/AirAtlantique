@@ -27,5 +27,13 @@ namespace AirAtlantique.Modele.ORM
             set { idCity = value; }
         }
 
+
+        public static Modele.ORM.city GetCity(int id)
+        {
+
+
+            return Modele.DAL.Request.CityRequest.getCity(id);
+        }
+
     }
 }
