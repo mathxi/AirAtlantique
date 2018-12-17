@@ -18,11 +18,45 @@ namespace AirAtlantique.Modele.ORM
 
 
         private int idPlane;
-        private string name;
-        private string type;
-        private int nb_Seat;
-        private Modele.ORM.pilote id_pilote;
-        private int id_airport;
+        private Modele.ORM.type type;
+        private Modele.ORM.crew crew;
+        private Modele.ORM.warehouse warehouse;
+        private bool status;
+
+
+
+
+        public bool Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+
+
+
+        public Modele.ORM.warehouse Warehouse
+        {
+            get { return warehouse; }
+            set { warehouse = value; }
+        }
+
+
+        public int Crew
+        {
+            get { return crew; }
+            set { crew = value; }
+        }
+
+
+
+        public Modele.ORM.type Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+
+
 
 
 
@@ -33,53 +67,16 @@ namespace AirAtlantique.Modele.ORM
         }
 
 
-        public int Id_airport
-        {
-            get { return id_airport; }
-            set { id_airport = value; OnPropertyChanged("id_airport"); }
-        }
-
-
-
-        public Modele.ORM.pilote Id_Pilote
-        {
-            get { return id_pilote; }
-            set { id_pilote = value; OnPropertyChanged("id_pilote"); }
-        }
-
-
-        public int Nb_Seat
-        {
-            get { return nb_Seat; }
-            set { nb_Seat = value; OnPropertyChanged("nb_Seat"); }
-        }
-
-
-
-        public string Type
-        {
-            get { return type; }
-            set { type = value; OnPropertyChanged("type"); }
-        }
-
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; OnPropertyChanged("name"); }
-        }
-
-
 
 
         public plane(int idplane, string name, string type, int nb_Seat, Modele.ORM.pilote id_Pilote, int id_airport)
         {
-            this.IdPlane = idplane;
-            this.Name = name;
-            this.Type = type;
-            this.Nb_Seat = nb_Seat;
-            this.Id_Pilote = id_Pilote;
-            this.Id_airport = id_airport;
+            //this.IdPlane = idplane;
+            //this.Name = name;
+            //this.Type = type;
+            //this.Nb_Seat = nb_Seat;
+            //this.Id_Pilote = id_Pilote;
+            //this.Id_airport = id_airport;
 
         }
 
