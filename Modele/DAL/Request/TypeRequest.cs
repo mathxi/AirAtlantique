@@ -13,10 +13,8 @@ namespace AirAtlantique.Modele.DAL.Request
 
         //Select statement
         public static Modele.ORM.type getType(int idType)
-
-
         {
-            Modele.ORM.type Type;
+            Modele.ORM.type Type=null;
             string query = "SELECT * FROM type where id=@type;";
 
 
@@ -97,7 +95,8 @@ namespace AirAtlantique.Modele.DAL.Request
                     dataReader.GetInt32(5),
                     dataReader.GetInt32(6),
                     dataReader.GetInt32(7)
-                    );                    
+                    );
+                    Types.Add(Type);
                 }
 
                 //close Data Reader

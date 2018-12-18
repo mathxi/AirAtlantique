@@ -75,13 +75,13 @@ namespace AirAtlantique.Modele.DAL.Request
 
         //public static void updatePlane(Modele.ORM.plane Plane)
         //{
-            
-           
+
+
         //    //Open connection
         //    ConnexionWorkBench connection = new ConnexionWorkBench();
         //    if (connection.OpenConnection() == true)
         //    {
-                
+
         //        string query = "UPDATE plane SET Name=@name, Type=@typePlane, nb_Seat=@nb_Seat WHERE idPlane=@idPlane";
         //        //Create Command
         //        MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
@@ -105,7 +105,26 @@ namespace AirAtlantique.Modele.DAL.Request
 
 
 
+        public static void deletePlane(int idPlane)
+        {
+            string query = "DELETE FROM `plane` WHERE id=@idPlane";
 
+
+            //Open connection
+            ConnexionWorkBench connection = new ConnexionWorkBench();
+            if (connection.OpenConnection() == true)
+
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
+                cmd.Parameters.AddWithValue("@idPlane", idPlane);
+                cmd.ExecuteNonQuery();
+
+                //close Connection
+                connection.CloseConnection();
+
+            }
+        }
 
 
         public static void insertPlane(Modele.ORM.plane Plane)

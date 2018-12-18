@@ -16,7 +16,7 @@ namespace AirAtlantique.Modele.DAL.Request
 
 
         {
-            Modele.ORM.crew Crew = new Modele.ORM.crew();
+            Modele.ORM.crew Crew = null;
             string query = "SELECT * FROM type where id=@crew;";
 
 
@@ -38,9 +38,10 @@ namespace AirAtlantique.Modele.DAL.Request
                 while (dataReader.Read())
                 {
 
-                    Crew.IdCrew = dataReader.GetInt32(0);
-                    Crew.Number = dataReader.GetInt32(1);
-
+                    Crew = new Modele.ORM.crew(
+                        dataReader.GetInt32(0),
+                        dataReader.GetInt32(1)
+                        );
                 }
 
                 //close Data Reader
@@ -63,6 +64,7 @@ namespace AirAtlantique.Modele.DAL.Request
 
 
         {
+            ObservableCollection<Modele.ORM.crew> Crews = null;
             Modele.ORM.crew Crew;
             string query = "SELECT * FROM crew;";
 
@@ -94,11 +96,11 @@ namespace AirAtlantique.Modele.DAL.Request
                 connection.CloseConnection();
 
                 //return list to be displayed
-                return Crew;
+                return Crews;
             }
             else
             {
-                return Crew;
+                return Crews;
             }
         }
 

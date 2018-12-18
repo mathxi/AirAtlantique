@@ -38,7 +38,7 @@ namespace AirAtlantique.Modele.ORM
 
         public static ObservableCollection<crew> getCrew()
         {
-            return Modele.DAL.Request.CrewRequest.getCrew();
+            return Modele.DAL.Request.CrewRequest.getCrews();
         }
     }
 }

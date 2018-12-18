@@ -23,20 +23,31 @@ namespace AirAtlantique.Vue
     /// </summary>
     public partial class Planes : Page
     {
+        VueModele.VueHome vue;
         public Planes()
         {
-            InitializeComponent();
-            VueModele.VueHome vue = new VueModele.VueHome();
 
-            ListType.ItemsSource = new ObservableCollection<Modele.ORM.type>();
+            InitializeComponent();
+            vue = new VueModele.VueHome();
 
             gridPlanes.ItemsSource = vue.getPlanes();
+            PlaneType.ItemsSource = vue.GetTypes();
+            PlaneWarehouse.ItemsSource = vue.GetWarehouses();
         }
 
         private void AddFlyModalClick(object sender,RoutedEventArgs e)
         {
             this.ModalAddPlane.Visibility = Visibility.Visible;
         }
+        private void deletePlane(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            int idplane = (int)button.Tag;
+            vue.deletePlane(idplane);
+            gridPlanes.ItemsSource = vue.getPlanes();
+
+        }
+
 
         private void ReturnPlaneListClick(object sender, RoutedEventArgs e)
         {
@@ -45,8 +56,8 @@ namespace AirAtlantique.Vue
 
         private void InsertPlaneClick(object sender, RoutedEventArgs e)
         {
-            AirAtlantique.Modele.ORM.plane plane = new Modele.ORM.plane(Convert.ToInt32(Id.Text), Types.DefaultBinder, Crew.Text, Warehouse.Text, Status.Text);
-            AirAtlantique.Modele.DAL.Request.PlaneRequest.insertPlane();
+            //AirAtlantique.Modele.ORM.plane plane = new Modele.ORM.plane(Convert.ToInt32(Id.Text), Types.DefaultBinder, Crew.Text, Warehouse.Text, Status.Text);
+            //AirAtlantique.Modele.DAL.Request.PlaneRequest.insertPlane();
         }
     }
     
