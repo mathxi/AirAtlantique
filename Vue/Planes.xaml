@@ -6,63 +6,82 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirAtlantique"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="Planes">
-    <Grid Background="White">
-        <!--<StackPanel Margin="20 20" HorizontalAlignment="Center" Orientation="Horizontal" >
-            <StackPanel Orientation="Horizontal">
-                <Label VerticalAlignment="Center">Nom</Label>
-                <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label VerticalAlignment="Center">Machin</Label>
-                <TextBox Margin="10 10" Height="26" Width="100" TextWrapping="Wrap" Text="TextBox"/>
-            </StackPanel>
-            <StackPanel>
-                --><!--<TextBox
-          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-          materialDesign:HintAssist.Hint="Content"
-          Text="{Binding Content}"
-          Margin="8 0 0 0"
-          VerticalAlignment="Bottom" />--><!--
-            </StackPanel>
-            <Button Background="#006064" BorderBrush="Transparent" >Ajouter</Button>
-
-        </StackPanel>-->
-        <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les Avions</Label>
-        <Grid>
-            <DataGrid ItemsSource="{Binding Planes}" AutoGenerateColumns="false" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Name="gridPlanes"> <!--SelectionChanged="Data_changed"-->
+    <Grid>
+    <StackPanel>
+        <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Tous Les Avions</Label>
+        <!--<Grid>
+            <DataGrid ItemsSource="{Binding Planes}" AutoGenerateColumns="false" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Name="gridPlanes"> --><!--SelectionChanged="Data_changed"--><!--
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="1*" Header="Id" Binding="{Binding IdPlane, Mode=OneWay}" />
                     <DataGridTextColumn Width="1*" Header="Type d'avion" Binding="{Binding Type.Name, Mode=OneWay}" />
                     <DataGridTextColumn Width="1*" Header="Type du moteur" Binding="{Binding Type.Motor, Mode=OneWay}" />
                     <DataGridTextColumn Width="1*" Header="Nombre de sièges total" Binding="{Binding Type.NbSeatingPlaces, Mode=OneWay}" />
-                    <DataGridTextColumn Width="1*" Header="Ville" Binding="{Binding Warehouse.Airport.City.Name, Mode=OneWay}" />
+                    <DataGridTextColumn Width="1*" Header="Ville" Binding="{Binding Warehouse.City.Name, Mode=OneWay}" />
                     
                 </DataGrid.Columns>
             </DataGrid>
-        </Grid>
+        </Grid>-->
+        <!--<ListBox Name="gridPlanes">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding IdPlane, Mode=OneWay}" />
+                        <TextBlock Text="{Binding Type.Name, Mode=OneWay}" />
+                        <TextBlock Text="{Binding Type.Motor, Mode=OneWay}" />
+                        <TextBlock Text="{Binding Type.NbSeatingPlaces, Mode=OneWay}" />
+                        <TextBlock Text="{Binding Warehouse.City.Name, Mode=OneWay}" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
 
-        <Grid>
-            <Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" Background="Blue"/>
-        </Grid>
 
-        <Grid x:Name="ModalAddPlane" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
-            <Grid Background="White" Height="150">
-                <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical">
-                        <TextBox materialDesign:HintAssist.Hint="Name"/>
+
+        <Button Width="150"  Click="AddFlyModalClick" Content="Ajouter un avion" Background="Blue"/>
+
+        <ListView  x:Name="gridPlanes" ItemsSource="{Binding Planes}" Width="auto">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding IdPlane}" Header="id Avion" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Type.Name}" Header="Name" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Type.Motor}" Header="Description" />
+                    <GridViewColumn Header="Supprimer">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Tag="{Binding IdPlane}" Click="deletePlane" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
+        
+            
+        
+
+
+        </StackPanel>
+    <Grid x:Name="ModalAddPlane" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
+        <Grid Background="White" Height="150">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <ComboBox x:Name="PlaneType" materialDesign:HintAssist.Hint="Type d'avion" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding TypePlane.Name}">
+                            </ComboBox>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock materialDesign:HintAssist.Hint="Machin"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Retour" Click="ReturnPlaneListClick"/>
+                        <Button Content="Ajouter"/>
                     </StackPanel>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Retour" Click="ReturnPlaneListClick"/>
-                    <Button Content="Ajouter"/>
                 </StackPanel>
             </Grid>
-        </Grid>
+    </Grid>
     </Grid>
 </Page>

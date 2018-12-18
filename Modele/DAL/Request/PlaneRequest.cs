@@ -14,8 +14,30 @@ namespace AirAtlantique.Modele.DAL.Request
     class PlaneRequest
     {
 
-        //Select statement
-        public static ObservableCollection<Modele.ORM.plane> getPlanes()
+
+        public static void deletePlane(int idPlane)
+        {
+            string query = "DELETE FROM `plane` WHERE id=@idPlane";
+
+
+            //Open connection
+            ConnexionWorkBench connection = new ConnexionWorkBench();
+            if (connection.OpenConnection() == true)
+
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
+                cmd.Parameters.AddWithValue("@idPlane", idPlane);
+                cmd.ExecuteNonQuery();
+
+                //close Connection
+                connection.CloseConnection();
+
+            }
+        }
+
+            //Select statement
+            public static ObservableCollection<Modele.ORM.plane> getPlanes()
 
 
         {

@@ -14,7 +14,6 @@ namespace AirAtlantique.Modele.ORM
         private bool available;
 
 
-
         public bool Available
         {
             get { return available; }

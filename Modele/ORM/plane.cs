@@ -87,6 +87,10 @@ namespace AirAtlantique.Modele.ORM
         {
             return Modele.DAL.Request.PlaneRequest.getPlanes();
         }
+        public static void deletePlane(int idPlane)
+        {
+            Modele.DAL.Request.PlaneRequest.deletePlane(idPlane);
+        }
 
 
 
