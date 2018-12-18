@@ -24,6 +24,6 @@
                 <materialDesign:PackIcon Kind="airplane" />
             </Button>
         </StackPanel>
-        <Frame x:Name="Main"   Margin="80,0,0,0" NavigationUIVisibility="Hidden" VerticalAlignment="Center"/>
+        <Frame x:Name="Main" HorizontalAlignment="Left" Margin="80 0 0 0" NavigationUIVisibility="Hidden" Width="720"/>
     </Grid>
 </Window>

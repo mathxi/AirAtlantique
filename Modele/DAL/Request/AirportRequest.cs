@@ -40,6 +40,8 @@ namespace AirAtlantique.Modele.DAL.Request
                     Airport.City = Modele.ORM.city.GetCity(dataReader.GetInt32(1));
                     Airport.Name = dataReader.GetString(2);
                     Airport.CodeAITA = dataReader.GetString(3);
+
+
                 }
 
                 //close Data Reader

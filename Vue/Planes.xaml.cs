@@ -24,29 +24,17 @@ namespace AirAtlantique.Vue
     /// </summary>
     public partial class Planes : Page
     {
-        VueModele.VueHome vue;
         public Planes()
         {
             InitializeComponent();
-            vue = new VueModele.VueHome();
+            VueModele.VueHome vue = new VueModele.VueHome();
 
             gridPlanes.ItemsSource = vue.getPlanes();
-            PlaneType.ItemsSource = vue.getTypes();
         }
 
         private void AddFlyModalClick(object sender,RoutedEventArgs e)
         {
             this.ModalAddPlane.Visibility = Visibility.Visible;
-        }
-        private void deletePlane(object sender,RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            int idplane = (int)button.Tag;
-            vue.deletePlane(idplane);
-            gridPlanes.ItemsSource = vue.getPlanes();
-
-
-
         }
 
         private void ReturnPlaneListClick(object sender, RoutedEventArgs e)
@@ -54,10 +42,10 @@ namespace AirAtlantique.Vue
             this.ModalAddPlane.Visibility = Visibility.Collapsed;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
+
+
+
     }
     
 }
