@@ -51,16 +51,18 @@
             <Grid Background="White" Height="150">
                 <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical">
-                        <TextBox materialDesign:HintAssist.Hint="Name"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock materialDesign:HintAssist.Hint="Machin"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Name ="Id" materialDesign:HintAssist.Hint="Id"/>
+                        <ComboBox x:Name="Type" materialDesign:ComboBoxAssist.ClassicMode="{Binding ElementName=ClassicModeCheckBox, Path=IsChecked}" Margin="0 8 0 8" HorizontalAlignment="Left" >
+                        </ComboBox>
+                        <TextBox Name ="Crew" materialDesign:HintAssist.Hint="Crew"/>
+                        <TextBox Name ="Warehouse" materialDesign:HintAssist.Hint="Warehouse"/>
+                        <TextBox Name ="Status" materialDesign:HintAssist.Hint="Status"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="Retour" Click="ReturnPlaneListClick"/>
-                    <Button Content="Ajouter"/>
+                    <Button Content="Ajouter" Click="InsertPlaneClick"/>
                 </StackPanel>
             </Grid>
         </Grid>

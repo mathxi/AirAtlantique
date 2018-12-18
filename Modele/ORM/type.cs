@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace AirAtlantique.Modele.ORM
 {
@@ -18,6 +19,17 @@ namespace AirAtlantique.Modele.ORM
         private int nbPremierePlaces;
 
 
+        public type(int ThisIdType, string ThisName, string ThisMotor, int ThisNbSeatingPlaces, int ThisNbEcoPlaces, int ThisNbEcoPremPlaces, int ThisNbBusinessPlaces, int ThisNbPremierePlaces)
+        {
+            IdType = ThisIdType;
+            Name = ThisName;
+            Motor = ThisMotor;
+            NbSeatingPlaces = ThisNbSeatingPlaces;
+            NbEcoPlaces = ThisNbEcoPlaces;
+            NbEcoPremPlaces = ThisNbEcoPremPlaces;
+            NbBusinessPlaces = ThisNbBusinessPlaces;
+            NbPremierePlaces = ThisNbPremierePlaces;
+        }
 
 
 
@@ -95,6 +107,9 @@ namespace AirAtlantique.Modele.ORM
             return Modele.DAL.Request.TypeRequest.getType(id);
         }
 
-
+        public static ObservableCollection<type> getTypes()
+        {
+            return Modele.DAL.Request.TypeRequest.getTypes();
+        }
     }
 }

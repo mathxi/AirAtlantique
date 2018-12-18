@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AirAtlantique.Modele;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 
@@ -29,6 +28,8 @@ namespace AirAtlantique.Vue
             InitializeComponent();
             VueModele.VueHome vue = new VueModele.VueHome();
 
+            ListType.ItemsSource = new ObservableCollection<Modele.ORM.type>();
+
             gridPlanes.ItemsSource = vue.getPlanes();
         }
 
@@ -42,10 +43,11 @@ namespace AirAtlantique.Vue
             this.ModalAddPlane.Visibility = Visibility.Collapsed;
         }
 
-
-
-
-
+        private void InsertPlaneClick(object sender, RoutedEventArgs e)
+        {
+            AirAtlantique.Modele.ORM.plane plane = new Modele.ORM.plane(Convert.ToInt32(Id.Text), Types.DefaultBinder, Crew.Text, Warehouse.Text, Status.Text);
+            AirAtlantique.Modele.DAL.Request.PlaneRequest.insertPlane();
+        }
     }
     
 }
