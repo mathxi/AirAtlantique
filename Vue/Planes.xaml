@@ -6,7 +6,6 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirAtlantique"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="Planes">
     <Grid Background="White">
         <StackPanel>
@@ -15,7 +14,7 @@
 
 
 
-        <Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="Blue"/>
+        <Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>
         <ListView  x:Name="gridPlanes" Width="auto">
             <ListView.View>
                 <GridView>
@@ -25,7 +24,7 @@
                     <GridViewColumn Header="" Width="auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Supprimer" Tag="{Binding IdPlane}" Click="deletePlane" />
+                                    <Button  BorderBrush="Transparent" Content="Supprimer" Tag="{Binding IdPlane}" Click="deletePlane" Background="#FF5454F7" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -46,18 +45,24 @@
 
         <Grid x:Name="ModalAddPlane" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
             <Grid Background="White" Height="150">
-                <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
                     <StackPanel Orientation="Horizontal">
-                        <ComboBox x:Name="PlaneType" materialDesign:HintAssist.Hint="Type d'avion" Style="{StaticResource MaterialDesignFloatingHintComboBox}" DisplayMemberPath="Name">
-                        </ComboBox>         
-                        <ComboBox x:Name="PlaneWarehouse" materialDesign:HintAssist.Hint="Entrepot" Style="{StaticResource MaterialDesignFloatingHintComboBox}" DisplayMemberPath="Name">
-                        </ComboBox>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox x:Name="PlaneType" materialDesign:HintAssist.Hint="Type d'avion" Style="{StaticResource MaterialDesignFloatingHintComboBox}" DisplayMemberPath="Name">
+                            </ComboBox>
+                            <ComboBox x:Name="PlaneWarehouse" materialDesign:HintAssist.Hint="Entrepot" Style="{StaticResource MaterialDesignFloatingHintComboBox}" DisplayMemberPath="Name">
+                            </ComboBox>
+                            <StackPanel>
+                                <TextBlock Text="Avion disponible ?"></TextBlock>
+                                <ToggleButton x:Name="Status" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton" IsChecked="True" />
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Retour" Click="ReturnPlaneListClick"/>
-                    <Button Content="Ajouter" Click="InsertPlaneClick"/>
+                    <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Retour" Click="ReturnPlaneListClick" Background="#FF5454F7"  BorderBrush="Transparent"/>
+                        <Button Content="Ajouter" Click="InsertPlaneClick" Background="#FF5454F7"  BorderBrush="Transparent"/>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>

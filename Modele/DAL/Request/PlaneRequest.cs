@@ -127,26 +127,25 @@ namespace AirAtlantique.Modele.DAL.Request
         }
 
 
-        public static void insertPlane(Modele.ORM.plane Plane)
+        public static void insertPlane(int type, int warehouse, bool Status)
         {
-            
-           
+
+            Status = true;
             //Open connection
             ConnexionWorkBench connection = new ConnexionWorkBench();
             if (connection.OpenConnection() == true)
             {
 
-                string query = "INSERT INTO table (id, Type, Crew, Warehouse, Status" +
-                               " VALUES(@id, @Type, @Crew, @Warehouse, @Status)";
+                string query = "INSERT INTO plane ( id_Type, id_Warehouse, Status)" +
+                               " VALUES( @Type, @Warehouse, @Status)";
                 //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
 
                 //shield injection
-                cmd.Parameters.AddWithValue("@id", Plane.IdPlane);
-                cmd.Parameters.AddWithValue("@Type", Plane.Type);
-                cmd.Parameters.AddWithValue("@Crew", Plane.Crew);
-                cmd.Parameters.AddWithValue("@Warehouse", Plane.Warehouse);
-                cmd.Parameters.AddWithValue("@Status", Plane.Status);
+                cmd.Parameters.AddWithValue("@Type", type);
+                //cmd.Parameters.AddWithValue("@Crew", Plane.Crew);
+                cmd.Parameters.AddWithValue("@Warehouse", warehouse);
+                cmd.Parameters.AddWithValue("@Status", Status);
 
                 //Execute the command
                 cmd.ExecuteNonQuery();

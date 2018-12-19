@@ -48,5 +48,11 @@ namespace AirAtlantique.VueModele
             return Warehouses;
         }
 
+        public void insertPlane(int type, int warehouse, bool Status)
+        {
+            AirAtlantique.Modele.DAL.Request.PlaneRequest.insertPlane(type, warehouse, Status);
+        }
+        
+
     }
 }

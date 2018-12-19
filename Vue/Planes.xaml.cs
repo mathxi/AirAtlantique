@@ -56,8 +56,15 @@ namespace AirAtlantique.Vue
 
         private void InsertPlaneClick(object sender, RoutedEventArgs e)
         {
-            //AirAtlantique.Modele.ORM.plane plane = new Modele.ORM.plane(Convert.ToInt32(Id.Text), Types.DefaultBinder, Crew.Text, Warehouse.Text, Status.Text);
-            //AirAtlantique.Modele.DAL.Request.PlaneRequest.insertPlane();
+            
+            Modele.ORM.type Type = PlaneType.SelectedItem as Modele.ORM.type;
+
+            Modele.ORM.warehouse Warehouse = PlaneWarehouse.SelectedItem as Modele.ORM.warehouse;
+            bool status  = (bool)Status.IsChecked;
+            vue.insertPlane(Type.IdType, Warehouse.IdWarehouse, status);
+            gridPlanes.ItemsSource = vue.getPlanes();
+
+
         }
     }
     
