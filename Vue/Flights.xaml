@@ -1,40 +1,38 @@
-﻿<Page x:Class="AirAtlantique.Vue.Planes"
+﻿<Page x:Class="AirAtlantique.Vue.Flights"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:local="clr-namespace:AirAtlantique"
+      xmlns:local="clr-namespace:AirAtlantique.Vue"
       mc:Ignorable="d" 
-      Title="Planes">
+      Title="Flights">
+
     <ScrollViewer VerticalScrollBarVisibility="Auto" >
         <Grid Background="White" >
             <StackPanel>
-                <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les avions</Label>
+                <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les vols</Label>
 
 
 
 
-                <Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>
-                <ListView  x:Name="gridPlanes" Width="auto">
+                <!--<Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>-->
+                <ListView  x:Name="gridFlights" Width="auto">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding IdPlane}" Header="id Avion" Width="auto" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Type.Name}" Header="Nom du type d'avion" Width="auto"/>
-                            <GridViewColumn DisplayMemberBinding="{Binding Type.Motor}" Header="Type de moteur" Width="auto" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="id du vol" Width="auto" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Plane.Warehouse.Airport.City.Name}" Header="Type d'avion en vol" Width="auto"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding AvailablePlaces}" Header="Nombre de places disponible" Width="auto" />
                             <GridViewColumn Header="" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button  BorderBrush="Transparent" Content="Supprimer" Tag="{Binding IdPlane}" Click="deletePlane" Background="#FF5454F7" />
+                                        <Button  BorderBrush="Transparent" Content="Supprimer" Tag="{Binding IdPlane}" Click="deleteFlight" Background="#FF5454F7" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
-
-
-
             </StackPanel>
 
 
@@ -44,7 +42,9 @@
 
 
 
-            <Grid x:Name="ModalAddPlane" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
+
+
+            <!--<Grid x:Name="ModalAddFlight" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
                 <Grid Background="White" Height="150">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
@@ -63,12 +63,13 @@
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Retour" Click="ReturnPlaneListClick" Background="#FF5454F7"  BorderBrush="Transparent"/>
-                            <Button Content="Ajouter" Click="InsertPlaneClick" Background="#FF5454F7"  BorderBrush="Transparent"/>
+                            <Button Content="Retour" Click="ReturnFlightListClick" Background="#FF5454F7"  BorderBrush="Transparent"/>
+                            <Button Content="Ajouter" Click="InsertFlightClick" Background="#FF5454F7"  BorderBrush="Transparent"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-            </Grid>
+            </Grid>-->
         </Grid>
     </ScrollViewer>
+
 </Page>

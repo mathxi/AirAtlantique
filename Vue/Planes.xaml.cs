@@ -23,12 +23,12 @@ namespace AirAtlantique.Vue
     /// </summary>
     public partial class Planes : Page
     {
-        VueModele.VueHome vue;
+        VueModele.VuePlanes vue;
         public Planes()
         {
 
             InitializeComponent();
-            vue = new VueModele.VueHome();
+            vue = new VueModele.VuePlanes();
 
             gridPlanes.ItemsSource = vue.getPlanes();
             PlaneType.ItemsSource = vue.GetTypes();
@@ -66,6 +66,7 @@ namespace AirAtlantique.Vue
 
 
         }
+
     }
     
 }

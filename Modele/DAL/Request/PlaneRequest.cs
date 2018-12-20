@@ -71,6 +71,71 @@ namespace AirAtlantique.Modele.DAL.Request
             {
                 return Planes;
             }
+        } 
+        
+        
+        //Select statement
+        public static Modele.ORM.plane getPlane(int id)
+
+
+        {
+
+            Modele.ORM.plane Plane = null;
+            string query = "SELECT * FROM plane where id=@id;";
+
+
+            //Open connection
+            ConnexionWorkBench connection = new ConnexionWorkBench();
+            if (connection.OpenConnection() == true)
+
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection.GetConnection());
+
+                //shield injection
+                cmd.Parameters.AddWithValue("@id", id);
+
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    int idplane = dataReader.GetInt32(0);
+                    Modele.ORM.type Type = Modele.ORM.type.GetType(dataReader.GetInt32(1));
+                    Modele.ORM.crew Crew;
+                    if (dataReader[2] != DBNull.Value)
+                    {
+                         Crew = Modele.ORM.crew.GetCrew(dataReader.GetInt32(2));
+                    }
+                    else
+                    {
+                        Crew = null;
+                    }
+                    
+                    Modele.ORM.warehouse Warehouse = Modele.ORM.warehouse.GetWarehouse(dataReader.GetInt32(3));
+                    bool status = dataReader.GetBoolean(4);
+
+
+
+                    Plane = new Modele.ORM.plane(idplane,Type,Crew,Warehouse,status);
+
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                connection.CloseConnection();
+
+                //return list to be displayed
+                return Plane;
+            }
+            else
+            {
+                return Plane;
+            }
         }
 
         //public static void updatePlane(Modele.ORM.plane Plane)

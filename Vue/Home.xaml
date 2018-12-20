@@ -8,13 +8,18 @@
       mc:Ignorable="d" 
       Title="Home">
     <Grid Background="White">
-        <Label Foreground="Black" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"  >Bonjours! Que faisons-nous aujourd'hui?</Label>
-        <DatePicker x:Name="actualdate"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Foreground="Black" FontSize="36" >Passez une bonne journée</Label>
 
+            <DatePicker Name="Date" Width="120" materialDesign:HintAssist.Hint="Date?" />
+            <materialDesign:TimePicker SelectedTimeFormat="Long" Is24Hours="True" x:Name="Hour" Width="100" materialDesign:HintAssist.Hint="Heure?"  SelectedTime="{Binding Time}"/>
+            <Button Content="Rechercher" Click="getDate" Width="100"/>
+            <TextBlock TextAlignment="Center" Foreground="#182952" FontSize="30" Text="bitch dab" x:Name="SelectedDateTime"></TextBlock>
+        </StackPanel>
 
     </Grid>
-   
 
-    
+
+
 
 </Page>

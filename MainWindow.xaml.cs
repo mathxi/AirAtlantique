@@ -35,6 +35,9 @@ namespace AirAtlantique
         {
             Main.Content = new Vue.Planes();
         }
-
+        private void Button_page_flights(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Vue.Flights();
+        }
     }
 }
