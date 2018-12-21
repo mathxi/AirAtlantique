@@ -8,14 +8,17 @@
       mc:Ignorable="d" 
       Title="Home">
     <Grid Background="White">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Foreground="Black" FontSize="36" >Passez une bonne journée</Label>
+        <Image Source="E:\Cours\C#\AirAtlantique\AirAtlantique\Media\Home\WorldWild.png" Width="800" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="50">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label HorizontalContentAlignment="Center" Foreground="Black" FontSize="36" >Welcome on board!</Label>
 
-            <DatePicker Name="Date" Width="120" materialDesign:HintAssist.Hint="Date?" />
-            <materialDesign:TimePicker SelectedTimeFormat="Long" Is24Hours="True" x:Name="Hour" Width="100" materialDesign:HintAssist.Hint="Heure?"  SelectedTime="{Binding Time}"/>
-            <Button Content="Rechercher" Click="getDate" Width="100"/>
-            <TextBlock TextAlignment="Center" Foreground="#182952" FontSize="30" Text="bitch dab" x:Name="SelectedDateTime"></TextBlock>
-        </StackPanel>
+                <DatePicker Name="Date" Width="120" materialDesign:HintAssist.Hint="Date?" />
+                <materialDesign:TimePicker SelectedTimeFormat="Long" Is24Hours="True" x:Name="Hour" Width="100" materialDesign:HintAssist.Hint="Heure?"  SelectedTime="{Binding Time}"/>
+                <Button Content="Rechercher" Click="getDate" Width="100"  Background="#FF5454F7" BorderBrush="Transparent"  />
+                <TextBlock TextAlignment="Center" Foreground="#182952" FontSize="30" Text="" x:Name="SelectedDateTime"></TextBlock>
+            </StackPanel>
+        </materialDesign:Card>
 
     </Grid>
 

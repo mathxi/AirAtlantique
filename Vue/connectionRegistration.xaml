@@ -1,0 +1,79 @@
+﻿<Page x:Class="AirAtlantique.Vue.connectionRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AirAtlantique.Vue"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="connectionRegistration">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush x:Name="backgroundimg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" Margin="2" Background="#006064" VerticalAlignment="Top"  >
+            <RadioButton Foreground="white"
+      Style="{StaticResource MaterialDesignTabRadioButton}"
+      Margin="4"
+      IsChecked="True"
+      Content="Connexion" Click="Switch_Connection" />
+            <RadioButton Foreground="white"
+      Style="{StaticResource MaterialDesignTabRadioButton}"
+      Margin="4"
+      IsChecked="False"
+      Content="Inscription" Click="Switch_Registration" />
+        </StackPanel>
+
+        <Grid x:Name="ShowConnection" Visibility="Visible" Margin="0,42,0,0">
+            <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="32">
+
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <Label>Connexion</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="idConnection" materialDesign:HintAssist.Hint="Mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                        <PasswordBox x:Name="passwordConnection" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" MinWidth="20" Margin="10,0" />
+                    </StackPanel>
+                    <Button  Background="#FF5454F7" BorderBrush="Transparent"  Margin="0,10,0,0" Click="TryConnection">Connexion</Button>
+                    <TextBlock x:Name="ConnectionReturned"/>
+                </StackPanel>
+            </materialDesign:Card>
+        </Grid>
+        <Grid x:Name="ShowRegistration" Visibility="Hidden" Margin="0,42,0,0">
+            <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="32">
+                <Grid>
+
+                    
+
+                    <StackPanel Orientation="Vertical" Margin="10,30,10,20">
+                        <Label>Inscription</Label>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="NameRegister" materialDesign:HintAssist.Hint="Prénom" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                            <TextBox x:Name="SurnameRegister" materialDesign:HintAssist.Hint="Nom" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="MailRegister" materialDesign:HintAssist.Hint="Mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                            <PasswordBox x:Name="PasswordRegister" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" MinWidth="20" Margin="10,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="AdressRegister" materialDesign:HintAssist.Hint="Adresse" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                            <TextBox x:Name="PostalCodeRegister" materialDesign:HintAssist.Hint="Code postale" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                            <TextBox x:Name="CityRegister" materialDesign:HintAssist.Hint="Ville" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="PhoneRegister" materialDesign:HintAssist.Hint="Numéro de téléphonne" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MinWidth="20" Margin="10,0"/>
+                        </StackPanel>
+                        <Button  Background="#FF5454F7" BorderBrush="Transparent"  Margin="0,10,0,0" Click="TryRegister">S'enregister</Button>
+                        <TextBlock x:Name="RegisterReturned"/>
+                    </StackPanel>
+                    
+                </Grid>
+            </materialDesign:Card>
+
+        </Grid>
+
+    </Grid>
+</Page>

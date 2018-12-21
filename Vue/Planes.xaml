@@ -22,10 +22,11 @@
                             <GridViewColumn DisplayMemberBinding="{Binding IdPlane}" Header="id Avion" Width="auto" />
                             <GridViewColumn DisplayMemberBinding="{Binding Type.Name}" Header="Nom du type d'avion" Width="auto"/>
                             <GridViewColumn DisplayMemberBinding="{Binding Type.Motor}" Header="Type de moteur" Width="auto" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Status}" Header="Disponibilité" Width="auto" />
                             <GridViewColumn Header="" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button  BorderBrush="Transparent" Content="Supprimer" Tag="{Binding IdPlane}" Click="deletePlane" Background="#FF5454F7" />
+                                        <Button Background="#FF5454F7" BorderBrush="Transparent"   Content="Supprimer" Tag="{Binding IdPlane}" Click="deletePlane"  />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -43,17 +44,16 @@
 
 
 
-
-            <Grid x:Name="ModalAddPlane" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
+            <materialDesign:Card x:Name="ModalAddPlane" Panel.ZIndex="5" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="80">
                 <Grid Background="White" Height="150">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
                         <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal">
-                                <ComboBox x:Name="PlaneType" materialDesign:HintAssist.Hint="Type d'avion" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            <StackPanel Orientation="Horizontal" >
+                                <ComboBox Margin="10" x:Name="PlaneType" materialDesign:HintAssist.Hint="Type d'avion" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                         IsEditable="True" DisplayMemberPath="Name">
                                 </ComboBox>
-                                <ComboBox x:Name="PlaneWarehouse" materialDesign:HintAssist.Hint="Entrepot" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                <ComboBox Margin="10" x:Name="PlaneWarehouse" materialDesign:HintAssist.Hint="Entrepot" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                         IsEditable="True" DisplayMemberPath="Name">
                                 </ComboBox>
                                 <StackPanel>
@@ -68,7 +68,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-            </Grid>
+            </materialDesign:Card>
         </Grid>
     </ScrollViewer>
 </Page>

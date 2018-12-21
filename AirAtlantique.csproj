@@ -67,6 +67,7 @@
     <Compile Include="Modele\DAL\ConnexionWorkBench.cs" />
     <Compile Include="Modele\DAL\Request\AirportRequest.cs" />
     <Compile Include="Modele\DAL\Request\CityRequest.cs" />
+    <Compile Include="Modele\DAL\Request\ClientRequest.cs" />
     <Compile Include="Modele\DAL\Request\CrewRequest.cs" />
     <Compile Include="Modele\DAL\Request\FlightRequest.cs" />
     <Compile Include="Modele\DAL\Request\HomeRequest.cs" />
@@ -76,15 +77,20 @@
     <Compile Include="Modele\DAL\Request\WarehouseRequest.cs" />
     <Compile Include="Modele\ORM\airport.cs" />
     <Compile Include="Modele\ORM\city.cs" />
+    <Compile Include="Modele\ORM\client.cs" />
     <Compile Include="Modele\ORM\crew.cs" />
     <Compile Include="Modele\ORM\flight.cs" />
     <Compile Include="Modele\ORM\plane.cs" />
     <Compile Include="Modele\ORM\salaried.cs" />
     <Compile Include="Modele\ORM\type.cs" />
     <Compile Include="Modele\ORM\warehouse.cs" />
+    <Compile Include="VueModele\VueConnectionRegistration.cs" />
     <Compile Include="VueModele\VueFlights.cs" />
     <Compile Include="VueModele\VueHome.cs" />
     <Compile Include="VueModele\VuePlanes.cs" />
+    <Compile Include="Vue\connectionRegistration.xaml.cs">
+      <DependentUpon>connectionRegistration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\Design\ComboBoxItem.cs" />
     <Compile Include="Vue\Flights.xaml.cs">
       <DependentUpon>Flights.xaml</DependentUpon>
@@ -92,6 +98,10 @@
     <Compile Include="Vue\Stocks.xaml.cs">
       <DependentUpon>Stocks.xaml</DependentUpon>
     </Compile>
+    <Page Include="Vue\connectionRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\Flights.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +167,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Home\WorldWild.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

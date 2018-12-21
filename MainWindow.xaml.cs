@@ -23,7 +23,7 @@ namespace AirAtlantique
         public MainWindow()
         {
             InitializeComponent();
-            Main.Content = new Vue.Home();
+            Main.Content = new Vue.connectionRegistration();
             
         }
 
@@ -39,6 +39,10 @@ namespace AirAtlantique
         private void Button_page_flights(object sender, RoutedEventArgs e)
         {
             Main.Content = new Vue.Flights();
+        }
+        private void Button_page_account(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Vue.connectionRegistration();
         }
     }
 }

@@ -18,6 +18,9 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="80" Background="#494949">
 
+            <Button Height="50" Padding="10" BorderThickness="0" Foreground="black" Click="Button_page_account" Background="#006064"  >
+                <materialDesign:PackIcon Kind="Account"  />
+            </Button>
             <Button Height="50" Padding="10" BorderThickness="0" Foreground="black" Click="Button_page_home" Background="#006064"  >
                 <materialDesign:PackIcon Kind="home"  />
             </Button>

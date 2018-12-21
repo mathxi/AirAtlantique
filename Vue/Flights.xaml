@@ -11,12 +11,12 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" >
         <Grid Background="White" >
             <StackPanel>
+                
+                
                 <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les vols</Label>
-
-
-
-
                 <Button Click="AddFlyModalClick" Content="Ajouter un vol" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>
+                
+                
                 <ListView  x:Name="gridFlights" Width="auto" SelectionChanged="Data_changed" >
                     <ListView.View>
                         <GridView>
@@ -53,15 +53,14 @@
 
 
 
-
-            <Grid x:Name="ModalAddFlight" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
+            <materialDesign:Card x:Name="ModalAddFlight" Panel.ZIndex="2" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="80">
                 <Grid Background="White" Height="150">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="30"/>
+                        <TextBlock Text="Ajouter un vol" HorizontalAlignment="Center" FontSize="30"/>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel Orientation="Vertical" >
-                                <Label>Départ</Label>
+                                    <Label>Départ</Label>
                                     <DatePicker Margin="10,0" Name="DateD" Width="120" materialDesign:HintAssist.Hint="Date?" />
                                     <materialDesign:TimePicker Margin="10,0" SelectedTimeFormat="Long" Is24Hours="True" x:Name="HourD" Width="100" materialDesign:HintAssist.Hint="Heure?"  SelectedTime="{Binding Time}"/>
                                 </StackPanel>
@@ -81,7 +80,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-            </Grid>
+            </materialDesign:Card>
         </Grid>
     </ScrollViewer>
 
