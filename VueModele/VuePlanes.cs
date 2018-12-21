@@ -20,7 +20,6 @@ namespace AirAtlantique.VueModele
             Warehouses = new ObservableCollection<Modele.ORM.warehouse>();
             Warehouses = Modele.ORM.warehouse.getWarehouses();
             Types = new ObservableCollection<Modele.ORM.type>();
-            Types = Modele.ORM.type.getTypes();
 
         }
 

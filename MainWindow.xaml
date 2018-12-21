@@ -13,7 +13,8 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" x:Name="AirAtlantique">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="80" Background="#494949">
 

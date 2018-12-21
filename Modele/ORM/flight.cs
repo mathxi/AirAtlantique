@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AirAtlantique.Modele.ORM
 {
-    class flight
+    class flight : INotifyPropertyChanged
     {
         private int id;
         private Modele.ORM.plane plane;
@@ -52,7 +53,7 @@ namespace AirAtlantique.Modele.ORM
         public int AvailablePlaces
         {
             get { return availablePlaces; }
-            set { availablePlaces = value; }
+            set { availablePlaces = value; OnPropertyChanged("availablePlaces"); }
         }
 
 
@@ -78,6 +79,44 @@ namespace AirAtlantique.Modele.ORM
 
             return Modele.DAL.Request.FlightRequest.getFlights();
         }
+
+
+
+
+        public static void updateFligt(Modele.ORM.flight Filght)
+        {
+            Modele.DAL.Request.FlightRequest.updateFligt(Filght);
+        }
+
+
+        
+        public static void deleteFlight(int idFlight)
+        {
+            Modele.DAL.Request.FlightRequest.deleteFlight(idFlight);
+        }
+
+
+        public static void insertFlight(Modele.ORM.plane APlane, string longdatetimeD, string longdatetimeA)
+        {
+            Modele.DAL.Request.FlightRequest.insertFlight(APlane, longdatetimeD, longdatetimeA);
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string info)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(info));
+                updateFligt(this);
+            }
+        }
+
+
+
+
 
     }
 }

@@ -35,7 +35,7 @@ namespace AirAtlantique.Vue
             PlaneWarehouse.ItemsSource = vue.GetWarehouses();
         }
 
-        private void AddFlyModalClick(object sender,RoutedEventArgs e)
+        private void AddPlaneModalClick(object sender,RoutedEventArgs e)
         {
             this.ModalAddPlane.Visibility = Visibility.Visible;
         }
@@ -63,7 +63,7 @@ namespace AirAtlantique.Vue
             bool status  = (bool)Status.IsChecked;
             vue.insertPlane(Type.IdType, Warehouse.IdWarehouse, status);
             gridPlanes.ItemsSource = vue.getPlanes();
-
+            this.ModalAddPlane.Visibility = Visibility.Collapsed;
 
         }
 

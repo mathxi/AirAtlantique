@@ -24,6 +24,7 @@ namespace AirAtlantique
         {
             InitializeComponent();
             Main.Content = new Vue.Home();
+            
         }
 
         private void Button_page_home(object sender, RoutedEventArgs e)

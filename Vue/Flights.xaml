@@ -16,17 +16,27 @@
 
 
 
-                <!--<Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>-->
-                <ListView  x:Name="gridFlights" Width="auto">
+                <Button Click="AddFlyModalClick" Content="Ajouter un vol" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>
+                <ListView  x:Name="gridFlights" Width="auto" SelectionChanged="Data_changed" >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="id du vol" Width="auto" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Plane.Warehouse.Airport.City.Name}" Header="Type d'avion en vol" Width="auto"/>
-                            <GridViewColumn DisplayMemberBinding="{Binding AvailablePlaces}" Header="Nombre de places disponible" Width="auto" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Plane.IdPlane}" Header="Id avion en vol" Width="auto"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Plane.Type.Name}" Header="Type d'avion en vol" Width="auto"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding HoursDeparture,ConverterCulture=fr}" Header="Heure de départ" Width="auto"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding HoursArrival, ConverterCulture=fr}" Header="Heure d'arriver" Width="auto"/>
+                            <GridViewColumn Header="Nombre de places disponible" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox  Text="{Binding AvailablePlaces, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--<GridViewColumn DisplayMemberBinding="{Binding AvailablePlaces, Mode=TwoWay}" Header="Nombre de places disponible" Width="auto"  />-->
                             <GridViewColumn Header="" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button  BorderBrush="Transparent" Content="Supprimer" Tag="{Binding IdPlane}" Click="deleteFlight" Background="#FF5454F7" />
+                                        <Button  BorderBrush="Transparent" Content="Supprimer" Tag="{Binding Id}" Click="deleteFlight" Background="#FF5454F7" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -44,22 +54,25 @@
 
 
 
-            <!--<Grid x:Name="ModalAddFlight" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
+            <Grid x:Name="ModalAddFlight" Background="#B2000000" Panel.ZIndex="2" Visibility="Hidden">
                 <Grid Background="White" Height="150">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="20"/>
+                        <TextBlock Text="Ajouter un avion" HorizontalAlignment="Center" FontSize="30"/>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Horizontal">
-                                <ComboBox x:Name="PlaneType" materialDesign:HintAssist.Hint="Type d'avion" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                        IsEditable="True" DisplayMemberPath="Name">
-                                </ComboBox>
-                                <ComboBox x:Name="PlaneWarehouse" materialDesign:HintAssist.Hint="Entrepot" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                        IsEditable="True" DisplayMemberPath="Name">
-                                </ComboBox>
-                                <StackPanel>
-                                    <TextBlock Text="Avion disponible ?"></TextBlock>
-                                    <ToggleButton x:Name="Status" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton" IsChecked="True" />
+                                <StackPanel Orientation="Vertical" >
+                                <Label>Départ</Label>
+                                    <DatePicker Margin="10,0" Name="DateD" Width="120" materialDesign:HintAssist.Hint="Date?" />
+                                    <materialDesign:TimePicker Margin="10,0" SelectedTimeFormat="Long" Is24Hours="True" x:Name="HourD" Width="100" materialDesign:HintAssist.Hint="Heure?"  SelectedTime="{Binding Time}"/>
                                 </StackPanel>
+                                <StackPanel Orientation="Vertical" >
+                                    <Label>Arrivé</Label>
+                                    <DatePicker Margin="10,0" Name="DateA" Width="120" materialDesign:HintAssist.Hint="Date?" />
+                                    <materialDesign:TimePicker Margin="10,0" SelectedTimeFormat="Long" Is24Hours="True" x:Name="HourA" Width="100" materialDesign:HintAssist.Hint="Heure?"  SelectedTime="{Binding Time}"/>
+                                </StackPanel>
+                                <ComboBox Margin="10,0" x:Name="Plane" materialDesign:HintAssist.Hint="Quel avion?" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                        IsEditable="True" DisplayMemberPath="IdPlane">
+                                </ComboBox>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -68,7 +81,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-            </Grid>-->
+            </Grid>
         </Grid>
     </ScrollViewer>
 

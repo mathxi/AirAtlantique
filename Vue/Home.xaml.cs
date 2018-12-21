@@ -19,20 +19,26 @@ namespace AirAtlantique.Vue
             Date.Language = lang;
 
 
-
         }
 
 
         private void getDate(object sender, RoutedEventArgs e)
         {
-            selectedDate = Date.SelectedDate;
-            //SelectedTime.Text = "Time: " + Hour.SelectedTime.Value.ToString("hh:mm");
-            string longdatetime = selectedDate.Value.ToString("yyyy/MM/dd") + " " + Hour.SelectedTime.Value.ToShortTimeString()  ;
+            if(Date.SelectedDate == null || Hour.SelectedTime.Value == null) {
+                SelectedDateTime.Text = "Les valeurs rentré ne sont pas bonne!";
+            }
+            else
+            {
+                selectedDate = Date.SelectedDate;
+                //SelectedTime.Text = "Time: " + Hour.SelectedTime.Value.ToString("hh:mm");
+                string longdatetime = selectedDate.Value.ToString("yyyy/MM/dd") + " " + Hour.SelectedTime.Value.ToShortTimeString();
 
 
-            //DateTime Selected = DateTime.ParseExact(longdatetime, "yyyy/MM/dd mm:hh",
-            //                          System.Globalization.CultureInfo.InvariantCulture);
-            SelectedDateTime.Text ="Nombre de vol ce jour: " + Modele.DAL.Request.HomeRequest.howMuchFlights(longdatetime).ToString();
+                //DateTime Selected = DateTime.ParseExact(longdatetime, "yyyy/MM/dd mm:hh",
+                //                          System.Globalization.CultureInfo.InvariantCulture);
+                SelectedDateTime.Text = "Nombre de vol ce jour: " + Modele.DAL.Request.HomeRequest.howMuchFlights(longdatetime).ToString();
+            }
+
         }
 
 

@@ -10,12 +10,12 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" >
         <Grid Background="White" >
             <StackPanel>
-                <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  >Tous Les avions</Label>
+                <Label Foreground="Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Tous Les avions</Label>
 
 
 
 
-                <Button Click="AddFlyModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>
+                <Button Click="AddPlaneModalClick" Content="Ajouter un avion" HorizontalAlignment="Center" VerticalAlignment="Top"  Background="#FF5454F7"  BorderBrush="Transparent"/>
                 <ListView  x:Name="gridPlanes" Width="auto">
                     <ListView.View>
                         <GridView>
